@@ -67,7 +67,7 @@ public class TechJobs {
                     printJobs(JobData.findAll());
 //                    System.out.println("Search all fields not yet implemented.");
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByValue(searchField, searchTerm));
                 }
             }
         }

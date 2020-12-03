@@ -62,18 +62,17 @@ public class JobData {
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
-     * @param column   Column that should be searched.
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
-    public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
+    public static ArrayList<HashMap<String, String>> findByValue(String Object, String value) {
 
         // load data, if not already loaded
         loadData();
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         value = value.toLowerCase();
-        if (column.equals("all")) {
+        if (Object.equals("all")) {
             for (int i = 0; i < allJobs.size(); i++) {
                 String job = "";
                 for (Map.Entry<String, String> entry : allJobs.get(i).entrySet()) {
@@ -91,7 +90,7 @@ public class JobData {
 
             for (HashMap<String, String> row : allJobs) {
 
-                String aValue = row.get(column);
+                String aValue = row.get(Object);
 
                 if (aValue.contains(value)) {
                     jobs.add(row);
